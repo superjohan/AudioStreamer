@@ -25,7 +25,7 @@
 #import <UIKit/UIKit.h>
 #else
 #import <Cocoa/Cocoa.h>
-#endif //TARGET_OS_IPHONE			
+#endif // TARGET_OS_IPHONE
 
 #include <pthread.h>
 #include <AudioToolbox/AudioToolbox.h>
@@ -131,6 +131,7 @@ extern NSString * const ASStatusChangedNotification;
 	bool inuse[kNumAQBufs];			// flags to indicate that a buffer is still in use
 	NSInteger buffersUsed;
 	NSDictionary *httpHeaders;
+	NSString *fileExtension;
 	
 	AudioStreamerState state;
 	AudioStreamerStopReason stopReason;
@@ -175,6 +176,7 @@ extern NSString * const ASStatusChangedNotification;
 @property (readonly) double duration;
 @property (readwrite) UInt32 bitRate;
 @property (readonly) NSDictionary *httpHeaders;
+@property (copy,readwrite) NSString *fileExtension;
 
 - (id)initWithURL:(NSURL *)aURL;
 - (void)start;
